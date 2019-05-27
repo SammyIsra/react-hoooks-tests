@@ -13,8 +13,15 @@ export function useRefresh(): RefreshFunction {
   return () => update(Math.random());
 }
 
-type Coordinates = { x: number; y: number };
-type MouseLocation = { client: Coordinates; screen: Coordinates };
+interface Coordinates {
+  x: number;
+  y: number;
+}
+
+export interface MouseLocation {
+  client: Coordinates;
+  screen: Coordinates;
+}
 
 /**
  * Returns an object with the value ofthe X and Y mouse location on the screen and the client.

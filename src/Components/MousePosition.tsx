@@ -11,9 +11,9 @@ const MousePosition: React.FC = () => {
   const mouseLocation = useMousePositionRef();
   const refresh = useRefresh();
 
+  // Handle mouse position rerender
   useEffect(() => {
     const intervalId = setInterval(refresh, 1000);
-    console.log("running this again??");
     return () => clearInterval(intervalId);
     // Disabling rule because we dont want to run this function again on every render.
     // Since the 'refresh' function is a new function at every run, the equality check would fail
