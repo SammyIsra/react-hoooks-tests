@@ -5,5 +5,28 @@
     "titleBar.activeBackground": "#42f1f4",
     "titleBar.inactiveBackground": "#42f1f4CC"
   },
-  "eslint.enable": false
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  // These exist to override my own personal config
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  // For viewing the status of ESLint
+  "eslint.alwaysShowStatus": true,
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true
 }

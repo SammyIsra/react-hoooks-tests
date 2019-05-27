@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useRefresh, useMousePositionRef } from "../Utils/Hooks";
 import SimpleList from "../Styles/SimpleList";
 
@@ -13,7 +13,12 @@ const MousePosition: React.FC = () => {
 
   useEffect(() => {
     const intervalId = setInterval(refresh, 1000);
+    console.log("running this again??");
     return () => clearInterval(intervalId);
+    // Disabling rule because we dont want to run this function again on every render.
+    // Since the 'refresh' function is a new function at every run, the equality check would fail
+    //  and the function would rerun
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
