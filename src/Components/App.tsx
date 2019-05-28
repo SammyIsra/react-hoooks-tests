@@ -4,6 +4,7 @@ import "./App.css";
 import MousePosition from "./MousePosition";
 import { ComponentDidDoSomething } from "./ComponentDidDoSomething";
 import SimpleList from "../Styles/SimpleList";
+import ReducerFun from "./ReducerFun";
 
 const App: React.FC = () => {
   const [showComponentDidMount, updateShower] = useState(true);
@@ -26,6 +27,8 @@ const App: React.FC = () => {
           Hide/Close the ComponentDidSomething component
         </button>
         {showComponentDidMount && <ComponentDidDoSomething />}
+
+        <ReducerFun />
       </SimpleList>
     </div>
   );
