@@ -2,6 +2,8 @@ import React, { useReducer } from "react";
 import SimpleList from "../Styles/SimpleList";
 
 type CounterReducerStates = "advance" | "go back";
+
+/** Reducer that determines the number of clicks given the prevState */
 const counterReducer: React.Reducer<number, CounterReducerStates> = (
   prevState,
   action
@@ -15,6 +17,8 @@ const counterReducer: React.Reducer<number, CounterReducerStates> = (
 };
 
 type StreetLightStates = "green" | "yellow" | "red";
+
+/** Reducer that uses only the prevState to determine the next state, since it only has one track */
 const streetLightReducer: React.Reducer<StreetLightStates, void> = (
   prevState,
   action
@@ -30,6 +34,8 @@ const streetLightReducer: React.Reducer<StreetLightStates, void> = (
 };
 
 type AdvancedStreetLightStates = "green" | "yellow" | "red";
+
+/** Reducer that considers previous state and action to determine the enxt state (tho it only goes in one direction) */
 const advancedStreetLightReducer: React.Reducer<
   StreetLightStates,
   StreetLightStates
