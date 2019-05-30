@@ -5,6 +5,7 @@ import MousePosition from "./MousePosition";
 import { ComponentDidDoSomething } from "./ComponentDidDoSomething";
 import SimpleList from "../Styles/SimpleList";
 import ReducerFun from "./ReducerFun";
+import AsyncLoading from "./AsyncLoading";
 
 const App: React.FC = () => {
   const [showComponentDidMount, updateShower] = useState(true);
@@ -29,6 +30,8 @@ const App: React.FC = () => {
         {showComponentDidMount && <ComponentDidDoSomething />}
 
         <ReducerFun />
+
+        <AsyncLoading />
       </SimpleList>
     </div>
   );
