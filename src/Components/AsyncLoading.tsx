@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SimpleList from "../Styles/SimpleList";
 import { makeGet, FetchRequest } from "../Services/request";
-
-/** Post object from https://jsonplaceholder.typicode.com/ */
-interface Post {
-  id: number;
-  userId: number;
-  title: string;
-  body: string;
-}
+import { Post } from "../Utils/Types";
 
 // TODO Find a way to use 'unknown' instead of 'any'
 /** Determine if candidate is a Post object */
@@ -30,7 +23,7 @@ function isPost(candidate: any): candidate is Post {
 const SinglePostRequestUrl = "https://jsonplaceholder.typicode.com/posts/1";
 
 /**
- * Shows how async loading using useReducer and useEffect
+ * Shows how async loading using useState and useEffect
  */
 const AsyncLoading = () => {
   /** State of the request, including payload and status */
@@ -71,13 +64,13 @@ const AsyncLoading = () => {
   return (
     <SimpleList>
       <div>Status: {status}</div>
-      {payload && <Post {...payload} />}
+      {payload && <SinglePost {...payload} />}
     </SimpleList>
   );
 };
 
 /** React Component just to display a single post */
-const Post: React.FC<Post> = post => {
+const SinglePost: React.FC<Post> = post => {
   return (
     <div>
       <h3>{post.title}</h3>

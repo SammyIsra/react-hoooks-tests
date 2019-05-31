@@ -22,20 +22,51 @@ export type FetchRequest<T> =
 
 interface ReadyFetchRequest {
   status: "ready";
-  payload: undefined;
+  payload?: undefined;
 }
 
 interface LoadingFetchRequest {
   status: "loading";
-  payload: undefined;
+  payload?: undefined;
 }
 
 interface ErrorFetchRequest {
   status: "error";
-  payload: undefined;
+  payload?: undefined;
 }
 
 interface SuccessFetchRequest<T> {
   status: "success";
   payload: T;
 }
+
+interface StartAction {
+  actionType: "start";
+}
+interface ErrorAction {
+  actionType: "error";
+}
+interface FinishAction<T> {
+  actionType: "finish";
+  payload: T;
+}
+export type RequestReducer<T> = React.Reducer<
+  FetchRequest<T>,
+  StartAction | ErrorAction | FinishAction<T>
+>;
+
+// export const requestReducer: RequestReducer<T> = <T>(
+//   prevState,
+//   { actionType, payload }
+// ) => {
+//   if (prevState.status === "ready") {
+//     if (actionType === "start") {
+//       return { status: "loading" };
+//     }
+//   } else if (prevState.status === "loading") {
+//     if (actionType === "finish") {
+//       return { status: "success", payload: payload };
+//     }
+//   }
+//   return prevState;
+// };
