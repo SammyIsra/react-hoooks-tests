@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useRefresh } from "../Utils/Hooks";
 import { SimpleBorderedList } from "../Styles/BasicStyles";
 
-export const ComponentDidDoSomething: React.FC = () => {
+const ComponentDidDoSomething: React.FC = () => {
   const counters = useRef({ mounted: 0, refreshed: 0, buttonClicked: 0 });
   const [clicked, updateClick] = useState(0);
 
@@ -51,3 +51,5 @@ export const ComponentDidDoSomething: React.FC = () => {
     </SimpleBorderedList>
   );
 };
+
+export default ComponentDidDoSomething;

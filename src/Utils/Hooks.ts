@@ -24,7 +24,7 @@ export interface MouseLocation {
 }
 
 /**
- * Returns an object with the value ofthe X and Y mouse location on the screen and the client.
+ * Returns an object with the value of the X and Y mouse location on the screen and the client.
  * The object works as a ref object, so it will not update the React Component and its changes will only be reflected on component update
  */
 export function useMousePositionRef() {
