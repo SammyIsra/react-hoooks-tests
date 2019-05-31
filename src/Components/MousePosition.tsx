@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useRefresh, useMousePositionRef } from "../Utils/Hooks";
-import SimpleList from "../Styles/SimpleList";
+import { SimpleBorderedList } from "../Styles/BasicStyles";
 
 // The test in this file is to have a component that only opdates every so often
 //  I wanted to test making using a useRef hook,
@@ -22,9 +22,9 @@ const MousePosition: React.FC = () => {
   }, []);
 
   return (
-    <SimpleList>
+    <SimpleBorderedList>
       X: {mouseLocation.client.x} Y: {mouseLocation.client.y}
-    </SimpleList>
+    </SimpleBorderedList>
   );
 };
 

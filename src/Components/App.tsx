@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./App.css";
 import MousePosition from "./MousePosition";
 import { ComponentDidDoSomething } from "./ComponentDidDoSomething";
-import SimpleList from "../Styles/SimpleList";
+import { SimpleBorderedList } from "../Styles/BasicStyles";
 import ReducerFun from "./ReducerFun";
 import AsyncLoading from "./AsyncLoading";
 import { AsyncReducerLoading } from "./AsyncReducerLoading";
@@ -19,7 +19,7 @@ const App: React.FC = () => {
         marginRight: "auto"
       }}
     >
-      <SimpleList>
+      <SimpleBorderedList>
         <button onClick={() => updateMousePositionShower(!showMousePosition)}>
           Hide/Close the MousePosition component
         </button>
@@ -35,7 +35,7 @@ const App: React.FC = () => {
         <AsyncLoading />
 
         <AsyncReducerLoading />
-      </SimpleList>
+      </SimpleBorderedList>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import SimpleList from "../Styles/SimpleList";
+import { SimpleBorderedList } from "../Styles/BasicStyles";
 
 type CounterReducerStates = "advance" | "go back";
 
@@ -57,7 +57,7 @@ const ReducerFun = () => {
   );
 
   return (
-    <SimpleList>
+    <SimpleBorderedList>
       <div>Clicked {clickedCounter} times!</div>
       <button onClick={() => dispatchCounter("advance")}>Increase</button>
       <button onClick={() => dispatchCounter("go back")}>Go back</button>
@@ -69,7 +69,7 @@ const ReducerFun = () => {
       <button onClick={() => aDispatchLight("green")}>Go Green</button>
       <button onClick={() => aDispatchLight("yellow")}>Go Yellow</button>
       <button onClick={() => aDispatchLight("red")}>Go Red</button>
-    </SimpleList>
+    </SimpleBorderedList>
   );
 };
 

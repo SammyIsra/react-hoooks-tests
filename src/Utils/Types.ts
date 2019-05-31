@@ -5,3 +5,12 @@ export interface Post {
   title: string;
   body: string;
 }
+
+/** Comment of a Post */
+export interface PostComment {
+  postId: number;
+  id: number;
+  email: string;
+  name: string;
+  body: string;
+}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import SimpleList from "../Styles/SimpleList";
+import { SimpleBorderedList, StatusLabel } from "../Styles/BasicStyles";
 import { makeGet, FetchRequest } from "../Services/request";
 import { Post } from "../Utils/Types";
-import { SinglePost } from "./SinglePost";
+import { SinglePost } from "./Posts";
 
 // TODO Find a way to use 'unknown' instead of 'any'
 /** Determine if candidate is a Post object */
@@ -63,11 +63,13 @@ const AsyncLoading = () => {
   }, []);
 
   return (
-    <SimpleList>
+    <SimpleBorderedList>
       <h2>Async loading using useState</h2>
-      <div>Status: {status}</div>
+      <div>
+        Status: <StatusLabel status={status}>{status}</StatusLabel>
+      </div>
       {payload && <SinglePost {...payload} />}
-    </SimpleList>
+    </SimpleBorderedList>
   );
 };
 

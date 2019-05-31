@@ -14,12 +14,6 @@ export function makeGet<T>(
     });
 }
 
-export type FetchRequest<T> =
-  | ReadyFetchRequest
-  | LoadingFetchRequest
-  | ErrorFetchRequest
-  | SuccessFetchRequest<T>;
-
 interface ReadyFetchRequest {
   status: "ready";
   payload?: undefined;
@@ -39,6 +33,11 @@ interface SuccessFetchRequest<T> {
   status: "success";
   payload: T;
 }
+export type FetchRequest<T> =
+  | ReadyFetchRequest
+  | LoadingFetchRequest
+  | ErrorFetchRequest
+  | SuccessFetchRequest<T>;
 
 interface StartAction {
   actionType: "start";
@@ -50,6 +49,8 @@ interface FinishAction<T> {
   actionType: "finish";
   payload: T;
 }
+
+/** Uses the React Reducer type to provide a type that works with async calls, which can be used for useReducer */
 export type RequestReducer<T> = React.Reducer<
   FetchRequest<T>,
   StartAction | ErrorAction | FinishAction<T>

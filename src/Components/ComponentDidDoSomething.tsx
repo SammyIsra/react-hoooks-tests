@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useRefresh } from "../Utils/Hooks";
-import SimpleList from "../Styles/SimpleList";
+import { SimpleBorderedList } from "../Styles/BasicStyles";
 
 export const ComponentDidDoSomething: React.FC = () => {
   const counters = useRef({ mounted: 0, refreshed: 0, buttonClicked: 0 });
@@ -42,12 +42,12 @@ export const ComponentDidDoSomething: React.FC = () => {
   console.log("Re-rendering");
 
   return (
-    <SimpleList>
+    <SimpleBorderedList>
       <div>Mounted: {counters.current.mounted}</div>
       <div>Refreshed: {counters.current.refreshed}</div>
       <div>Clicked: {counters.current.buttonClicked}</div>
       <button onClick={() => updateClick(clicked + 1)}>Increase Clicker</button>
       <button onClick={() => refresh()}>Force update</button>
-    </SimpleList>
+    </SimpleBorderedList>
   );
 };
