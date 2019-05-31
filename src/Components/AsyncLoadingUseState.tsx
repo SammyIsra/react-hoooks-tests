@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SimpleBorderedList, StatusLabel } from "../Styles/BasicStyles";
 import { makeGet, FetchRequest } from "../Services/request";
 import { Post } from "../Utils/Types";
-import { SinglePost } from "./Posts";
+import { SinglePost } from "./Views/Posts";
 
 // TODO Find a way to use 'unknown' instead of 'any'
 /** Determine if candidate is a Post object */

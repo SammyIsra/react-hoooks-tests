@@ -1,6 +1,6 @@
 import React from "react";
-import { PostComment } from "../Utils/Types";
-import { FlexList } from "../Styles/BasicStyles";
+import { PostComment } from "../../Utils/Types";
+import { FlexList } from "../../Styles/BasicStyles";
 
 export const SingleComment: React.FC<PostComment> = comment => {
   return (

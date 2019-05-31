@@ -4,9 +4,9 @@ import "./App.css";
 import MousePosition from "./MousePosition";
 import { ComponentDidDoSomething } from "./ComponentDidDoSomething";
 import { SimpleBorderedList } from "../Styles/BasicStyles";
-import ReducerFun from "./ReducerFun";
-import AsyncLoading from "./AsyncLoading";
-import { AsyncReducerLoading } from "./AsyncReducerLoading";
+import SimpleUseReducer from "./SimpleUseReducer";
+import AsyncLoadingUseState from "./AsyncLoadingUseState";
+import AsyncLoadingUseReducer from "./AsyncLoadingUseReducer";
 
 const App: React.FC = () => {
   const [showComponentDidMount, updateShower] = useState(true);
@@ -30,11 +30,11 @@ const App: React.FC = () => {
         </button>
         {showComponentDidMount && <ComponentDidDoSomething />}
 
-        <ReducerFun />
+        <SimpleUseReducer />
 
-        <AsyncLoading />
+        <AsyncLoadingUseState />
 
-        <AsyncReducerLoading />
+        <AsyncLoadingUseReducer />
       </SimpleBorderedList>
     </div>
   );

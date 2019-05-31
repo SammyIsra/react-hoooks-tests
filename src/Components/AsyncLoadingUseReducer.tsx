@@ -2,15 +2,15 @@ import React, { useReducer, useEffect } from "react";
 import { makeGet, requestReducer } from "../Services/request";
 import { Post, PostComment } from "../Utils/Types";
 import { SimpleBorderedList, StatusLabel } from "../Styles/BasicStyles";
-import { SinglePost } from "./Posts";
-import { CommentList } from "./Comments";
+import { SinglePost } from "./Views/Posts";
+import { CommentList } from "./Views/Comments";
 
 const Post5RequestURL = "https://jsonplaceholder.typicode.com/posts/5";
 const Post5CommentsRequestURL =
   "https://jsonplaceholder.typicode.com/posts/5/comments?_limit=3";
 
 /** Demo how to handle async requests using useReducer and useEffect */
-export const AsyncReducerLoading: React.FC<{}> = () => {
+const AsyncReducerLoading: React.FC<{}> = () => {
   // Request Reducer for fetching a Post
   const [singlePostState, singlePostDispatch] = useReducer(
     requestReducer<Post>(),
@@ -98,3 +98,5 @@ export const AsyncReducerLoading: React.FC<{}> = () => {
     </SimpleBorderedList>
   );
 };
+
+export default AsyncReducerLoading;

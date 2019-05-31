@@ -1,5 +1,5 @@
 import React from "react";
-import { Post } from "../Utils/Types";
+import { Post } from "../../Utils/Types";
 
 /** React Component just to display a single post */
 export const SinglePost: React.FC<Post> = post => {
