@@ -1,25 +1,11 @@
 import React, { useReducer, useEffect } from "react";
-import { makeGet, RequestReducer } from "../Services/request";
+import { makeGet, requestReducer } from "../Services/request";
 import { Post } from "../Utils/Types";
 import SimpleList from "../Styles/SimpleList";
 import { SinglePost } from "./SinglePost";
 
-/** Reducer that handles loading states of an async request to get a post */
-const LoadingPostReducer: RequestReducer<Post> = (prevState, action) => {
-  if (prevState.status === "ready") {
-    if (action.actionType === "start") {
-      return { status: "loading" };
-    }
-  } else if (prevState.status === "loading") {
-    if (action.actionType === "finish") {
-      return { status: "success", payload: action.payload };
-    }
-  }
-  return prevState;
-};
-
 export const AsyncReducerLoading: React.FC<{}> = () => {
-  const [requestState, requestDispatch] = useReducer(LoadingPostReducer, {
+  const [requestState, requestDispatch] = useReducer(requestReducer<Post>(), {
     status: "ready",
     payload: undefined
   });

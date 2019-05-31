@@ -55,18 +55,19 @@ export type RequestReducer<T> = React.Reducer<
   StartAction | ErrorAction | FinishAction<T>
 >;
 
-// export const requestReducer: RequestReducer<T> = <T>(
-//   prevState,
-//   { actionType, payload }
-// ) => {
-//   if (prevState.status === "ready") {
-//     if (actionType === "start") {
-//       return { status: "loading" };
-//     }
-//   } else if (prevState.status === "loading") {
-//     if (actionType === "finish") {
-//       return { status: "success", payload: payload };
-//     }
-//   }
-//   return prevState;
-// };
+/** Function that returns a Reducer that handles async calls by assinging them a state */
+export const requestReducer: <T>() => RequestReducer<T> = () => (
+  prevState,
+  action
+) => {
+  if (prevState.status === "ready") {
+    if (action.actionType === "start") {
+      return { status: "loading" };
+    }
+  } else if (prevState.status === "loading") {
+    if (action.actionType === "finish") {
+      return { status: "success", payload: action.payload };
+    }
+  }
+  return prevState;
+};
