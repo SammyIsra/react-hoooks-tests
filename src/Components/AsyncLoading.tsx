@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SimpleList from "../Styles/SimpleList";
 import { makeGet, FetchRequest } from "../Services/request";
 import { Post } from "../Utils/Types";
+import { SinglePost } from "./SinglePost";
 
 // TODO Find a way to use 'unknown' instead of 'any'
 /** Determine if candidate is a Post object */
@@ -63,19 +64,10 @@ const AsyncLoading = () => {
 
   return (
     <SimpleList>
+      <h2>Async loading using useState</h2>
       <div>Status: {status}</div>
       {payload && <SinglePost {...payload} />}
     </SimpleList>
-  );
-};
-
-/** React Component just to display a single post */
-const SinglePost: React.FC<Post> = post => {
-  return (
-    <div>
-      <h3>{post.title}</h3>
-      <p>{post.body}</p>
-    </div>
   );
 };
 
