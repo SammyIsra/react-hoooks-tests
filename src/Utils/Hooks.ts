@@ -63,15 +63,20 @@ export function useAsyncReducer<T>() {
   return reducer;
 }
 
-export function useFetch<T>(url: string, dependencies: any[] = []) {
-  const [state, dispatch] = useAsyncReducer<T>();
+/**
+ * Handles performing a fetch call and handling dispathing the correct actions, while exposing only the status of the request and payload
+ * @param url URL that the request will be made to
+ * @param dependencies List of dependencies that useEffect will depend on. Treat is as the second argument of useEffect
+ */
+export function useFetch<PayloadType>(url: string, dependencies: any[] = []) {
+  const [state, dispatch] = useAsyncReducer<PayloadType>();
 
   useEffect(() => {
     console.log("Running the useEffect inside of useFetch");
     dispatch({ actionType: "start" });
 
     // Start request
-    makeGet<T>(url, {
+    makeGet<PayloadType>(url, {
       mode: "cors",
       headers: {
         Accept: "application/json",

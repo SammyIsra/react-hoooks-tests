@@ -73,6 +73,7 @@ const AsyncReducerLoading: React.FC<{}> = () => {
       });
   }, [postCommentsDispatch, singlePostState.status]);
 
+  // Exact same behavior as what we have above with useReducer, useAsyncReducer, and useEffect
   const photo = useFetch<Photo>(Photo1URL);
 
   return (
