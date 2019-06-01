@@ -15,6 +15,7 @@ const App: React.FC = () => {
   return (
     <AppBody>
       <SimpleBorderedList>
+        <h1>Sammy is learning how to use Hooks, and this is his playground</h1>
         <MousePosition />
 
         <button onClick={() => updateShower(!showComponentDidMount)}>

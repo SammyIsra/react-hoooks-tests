@@ -50,11 +50,10 @@ interface FinishAction<T> {
   payload: T;
 }
 
+export type AsyncAction<T> = StartAction | ErrorAction | FinishAction<T>;
+
 /** Uses the React Reducer type to provide a type that works with async calls, which can be used for useReducer */
-export type RequestReducer<T> = React.Reducer<
-  FetchRequest<T>,
-  StartAction | ErrorAction | FinishAction<T>
->;
+export type RequestReducer<T> = React.Reducer<FetchRequest<T>, AsyncAction<T>>;
 
 /** Function that returns a Reducer that handles async calls by assinging them a state */
 export const asyncReducer: <T>() => RequestReducer<T> = () => (

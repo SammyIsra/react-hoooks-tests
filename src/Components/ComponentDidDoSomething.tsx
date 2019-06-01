@@ -43,6 +43,14 @@ const ComponentDidDoSomething: React.FC = () => {
 
   return (
     <SimpleBorderedList>
+      <h2>
+        Using <code>useEffect</code> and giving it different dependencies to
+        make it update at different intervals.
+      </h2>
+      <h4>
+        Note: Counters are usually 1 unit behind because useEffect runs AFTER
+        rendering
+      </h4>
       <div>Mounted: {counters.current.mounted}</div>
       <div>Refreshed: {counters.current.refreshed}</div>
       <div>Clicked: {counters.current.buttonClicked}</div>

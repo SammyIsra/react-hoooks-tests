@@ -58,6 +58,9 @@ const ReducerFun = () => {
 
   return (
     <SimpleBorderedList>
+      <h2>
+        Each of these examples use a simple <code>useReducer</code>
+      </h2>
       <div>Clicked {clickedCounter} times!</div>
       <button onClick={() => dispatchCounter("advance")}>Increase</button>
       <button onClick={() => dispatchCounter("go back")}>Go back</button>

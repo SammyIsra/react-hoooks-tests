@@ -23,7 +23,13 @@ const MousePosition: React.FC = () => {
 
   return (
     <SimpleBorderedList>
-      X: {mouseLocation.client.x} Y: {mouseLocation.client.y}
+      <h2>
+        Use <code>useRef</code> and <code>useEffect</code> to have a state
+        variable that updates only every so often
+      </h2>
+      <div>
+        X: {mouseLocation.client.x} Y: {mouseLocation.client.y}
+      </div>
     </SimpleBorderedList>
   );
 };
