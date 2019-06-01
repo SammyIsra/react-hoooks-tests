@@ -5,6 +5,7 @@ import { SimpleBorderedList, StatusLabel } from "../Styles/BasicStyles";
 import { SinglePost } from "./Views/Posts";
 import { CommentList } from "./Views/Comments";
 import { useAsyncReducer, useFetch } from "../Utils/Hooks";
+import { SinglePhoto } from "./Views/Photos";
 
 const Post5RequestURL = "https://jsonplaceholder.typicode.com/posts/5";
 const Post5CommentsRequestURL =
@@ -14,6 +15,7 @@ const Photo1URL = "https://jsonplaceholder.typicode.com/photos/1/";
 /** Demo how to handle async requests using useReducer and useEffect */
 const AsyncReducerLoading: React.FC<{}> = () => {
   // Request Reducer for fetching a Post
+  // Most barebones example; no custom hooks but the reducer is external, because I would like to save myself a headache
   const [singlePostState, singlePostDispatch] = useReducer(
     asyncReducer<Post>(),
     {
@@ -23,7 +25,7 @@ const AsyncReducerLoading: React.FC<{}> = () => {
   );
 
   // Request Reducer for fetching the Comments of a Post comments.
-  // Jses shortcut 'useAsyncReducer', which is the same as the reducer above, just a bit simplified
+  // Uses shortcut 'useAsyncReducer', which is the same as the reducer above, just a bit simplified
   const [postCommentsState, postCommentsDispatch] = useAsyncReducer<
     PostComment[]
   >();
@@ -101,7 +103,7 @@ const AsyncReducerLoading: React.FC<{}> = () => {
         Photo Request Status:{" "}
         <StatusLabel status={photo.status}>{photo.status}</StatusLabel>
       </div>
-      {photo.status === "success" && <div>{photo.payload.url}</div>}
+      {photo.status === "success" && <SinglePhoto {...photo.payload} />}
     </SimpleBorderedList>
   );
 };

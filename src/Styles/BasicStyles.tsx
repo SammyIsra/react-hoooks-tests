@@ -33,3 +33,13 @@ export const FlexList = styled.div`
     margin: 5px;
   }
 `;
+
+export const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  > * {
+    margin: 5px;
+  }
+`;
