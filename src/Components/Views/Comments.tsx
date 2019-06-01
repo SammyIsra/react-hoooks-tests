@@ -17,7 +17,7 @@ export const CommentList: React.FC<{ comments: PostComment[] }> = ({
   return (
     <FlexList>
       {comments.map(comment => (
-        <SingleComment {...comment} />
+        <SingleComment key={comment.id} {...comment} />
       ))}
     </FlexList>
   );

@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useReducer } from "react";
+import { asyncReducer, makeGet } from "../Services/request";
 
 /** Function that when called, forces a re-render of the application */
 type RefreshFunction = () => void;
@@ -51,4 +52,48 @@ export function useMousePositionRef() {
   );
 
   return location.current;
+}
+
+/** Shortcut hook to have a reducer that is more easy to use for async events */
+export function useAsyncReducer<T>() {
+  const reducer = useReducer(asyncReducer<T>(), {
+    status: "ready",
+    payload: undefined
+  });
+  return reducer;
+}
+
+export function useFetch<T>(url: string, dependencies: any[] = []) {
+  const [state, dispatch] = useAsyncReducer<T>();
+
+  useEffect(() => {
+    console.log("Running the useEffect inside of useFetch");
+    dispatch({ actionType: "start" });
+
+    // Start request
+    makeGet<T>(url, {
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      // Mark request as successful, and store result
+      .then(body => dispatch({ actionType: "finish", payload: body }))
+
+      // Mark request as error
+      .catch(err => {
+        dispatch({ actionType: "error" });
+        console.error(err);
+      });
+    // I dont know WHY it forces me to have 'dispatch' as a dependency, it doesn't have a problem with it in the AsyncLoadingUseReducer useEffect!!
+  }, [
+    dispatch,
+    url,
+    // I have to disable this rule because I am supposed to trust the array from the arguments
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    ...dependencies
+  ]);
+
+  return state;
 }

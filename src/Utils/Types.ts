@@ -1,3 +1,5 @@
+import { string } from "prop-types";
+
 /** Post object from https://jsonplaceholder.typicode.com/ */
 export interface Post {
   id: number;
@@ -13,4 +15,12 @@ export interface PostComment {
   email: string;
   name: string;
   body: string;
+}
+
+export interface Photo {
+  id: number;
+  albumId: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
 }

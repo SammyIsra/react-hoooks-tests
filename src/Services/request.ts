@@ -57,7 +57,7 @@ export type RequestReducer<T> = React.Reducer<
 >;
 
 /** Function that returns a Reducer that handles async calls by assinging them a state */
-export const requestReducer: <T>() => RequestReducer<T> = () => (
+export const asyncReducer: <T>() => RequestReducer<T> = () => (
   prevState,
   action
 ) => {
