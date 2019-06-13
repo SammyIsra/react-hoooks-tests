@@ -68,7 +68,11 @@ export function useAsyncReducer<T>() {
  * @param url URL that the request will be made to
  * @param dependencies List of dependencies that useEffect will depend on. Treat is as the second argument of useEffect
  */
-export function useFetch<PayloadType>(url: string, dependencies: any[] = []) {
+export function useFetch<PayloadType>(
+  url: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dependencies: readonly any[] = []
+) {
   const [state, dispatch] = useAsyncReducer<PayloadType>();
 
   useEffect(() => {
@@ -91,7 +95,6 @@ export function useFetch<PayloadType>(url: string, dependencies: any[] = []) {
         dispatch({ actionType: "error" });
         console.error(err);
       });
-    // I dont know WHY it forces me to have 'dispatch' as a dependency, it doesn't have a problem with it in the AsyncLoadingUseReducer useEffect!!
   }, [
     dispatch,
     url,
