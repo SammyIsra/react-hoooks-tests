@@ -9,6 +9,7 @@ import AsyncLoadingUseState from "./AsyncLoadingUseState";
 import AsyncLoadingUseReducer from "./AsyncLoadingUseReducer";
 
 import { SimpleBorderedList } from "../Styles/BasicStyles";
+import StoredState from "./StoredState";
 
 const App: React.FC = () => {
   const [showComponentDidMount, updateShower] = useState(true);
@@ -17,6 +18,8 @@ const App: React.FC = () => {
       <SimpleBorderedList>
         <h1>Sammy is learning how to use Hooks, and this is his playground</h1>
         <MousePosition />
+
+        <StoredState />
 
         <button onClick={() => updateShower(!showComponentDidMount)}>
           Hide/Close the ComponentDidSomething component
