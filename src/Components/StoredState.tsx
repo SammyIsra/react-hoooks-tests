@@ -10,12 +10,18 @@ function usePersistentState(
   key: string,
   initialValue: string = ""
 ) {
+  // create store by fetching from store or using default
   const [state, setState] = React.useState<string>(
     storage.getItem(key) || initialValue
   );
 
+  // -Save to storage whenever the state changes
+  // -key and storage are listed as dependencies since they are used in the effect, 
+  //  but in reality only the state will change at any time UNLESS the user changes the key,
+  //  which... not cool bro 
   useEffect(() => storage.setItem(key, state), [state, key, storage]);
 
+  // Return the same stuff you get from useState
   return [state, setState] as const;
 }
 
@@ -32,6 +38,7 @@ const StoredState: React.FunctionComponent<{}> = function(props) {
   const [sreminder, setSReminder] = useSessionStorageState("session-reminder");
   return (
     <SimpleBorderedList>
+      <h2>Use the browser's Store to keep the state for a longer term. </h2>
       <p>
         Using <code>localStorage</code>, kept after closing the tab
       </p>
