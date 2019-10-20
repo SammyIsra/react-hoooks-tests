@@ -1,9 +1,17 @@
 {
   "workbench.colorCustomizations": {
-    "titleBar.activeForeground": "#000",
-    "titleBar.inactiveForeground": "#000000CC",
+    "activityBar.background": "#72f5f7",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#f54af2",
+    "activityBarBadge.foreground": "#15202b",
     "titleBar.activeBackground": "#42f1f4",
-    "titleBar.inactiveBackground": "#42f1f4CC"
+    "titleBar.inactiveBackground": "#42f1f499",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveForeground": "#15202b99",
+    "statusBar.background": "#42f1f4",
+    "statusBarItem.hoverBackground": "#12edf1",
+    "statusBar.foreground": "#15202b"
   },
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "eslint.validate": [
@@ -28,5 +36,6 @@
   // For viewing the status of ESLint
   "eslint.alwaysShowStatus": true,
   "eslint.enable": true,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "peacock.color": "#42f1f4"
 }

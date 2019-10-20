@@ -64,14 +64,14 @@ export function useAsyncReducer<T>() {
 }
 
 /**
- * Handles performing a fetch call and handling dispathing the correct actions, while exposing only the status of the request and payload
+ * Handles performing a fetch call and handling dispathing the correct actions, while exposing only the status and payload of the request
  * @param url URL that the request will be made to
  * @param dependencies List of dependencies that useEffect will depend on. Treat is as the second argument of useEffect
  */
 export function useFetch<PayloadType>(
   url: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dependencies: readonly any[] = []
+  dependencies: readonly (number | string)[] = []
 ) {
   const [state, dispatch] = useAsyncReducer<PayloadType>();
 
@@ -98,7 +98,7 @@ export function useFetch<PayloadType>(
   }, [
     dispatch,
     url,
-    // I have to disable this rule because I am supposed to trust the array from the arguments
+    // I have to disable this rule because I am supposed to trust the array from the arguments.
     // eslint-disable-next-line react-hooks/exhaustive-deps
     ...dependencies
   ]);
